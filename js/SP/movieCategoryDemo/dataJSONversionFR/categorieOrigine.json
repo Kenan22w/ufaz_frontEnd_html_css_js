@@ -1,0 +1,14 @@
+[
+  {
+    "idCategorie": 1,
+    "categorie": "Comique"
+  },
+  {
+    "idCategorie": 2,
+    "categorie": "Romantique"
+  },
+  {
+    "idCategorie": 3,
+    "categorie": "action"
+  }
+]

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebForm</title>
+<style>
+body, input, button {font-family: Verdana;font-size: 1em;}
+
+.champ1 {display: inline-block;width:120px;}
+
+fieldset {width:450px;border:1px solid red;border-radius: 15px;margin:5px 10px;line-height: 35px;}
+
+input[required]:invalid {border:2px red solid;}
+input[required]:valid {border:2px green solid;}
+
+
+</style>
+</head>
+<body>
+<h1>HTML Web Form</h1>
+<form action="sentData.php" method="post">
+<fieldset>
+	<legend>Contact</legend>
+<span class="champ1">Last name</span><input type="text" name="lastname" placeholder="Your last name" required><br>	
+<span class="champ1">First name</span><input type="text" name="firstname" placeholder="Your first name"><br>
+</fieldset>
+<button>Send</button>
+</form>	
+</body>
+</html>

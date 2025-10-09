@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+//Number as an object, rare to use it!
+var a=new Number("100");
+console.log(typeof a);
+console.log((typeof Number.parseInt(a) ) + " = " + Number.parseInt(a));
+if(Number.isNaN(a/0))	console.log(a+" is Not a Number!");
+//Warning: returns false if NaN and type of Number
+
+var b='text';
+console.log(b);
+if(isNaN(b)) console.log(b+" is Not a Number!");
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

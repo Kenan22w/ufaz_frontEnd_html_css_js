@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String  => to avoid
+
+var text1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget nunc a nibh faucibus finibus iaculis non ex. Nulla facilisi. Nulla augue elit, bibendum et rhoncus vel, tincidunt nec odio.";
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
+
+console.log("Nb caracteres : "+text1.length);
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
+
+var text2=text1.toUpperCase();
+
+console.log(text2);
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+console.log(text1.substring(0,5));
+
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+
+splitString=text1.split(' ');
+console.log(splitString);
+
+data="abcde";
+splitString=data.split('');
+console.log(data,splitString);
+
+data="12345";
+splitString=data.split('');
+console.log(data,splitString);
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

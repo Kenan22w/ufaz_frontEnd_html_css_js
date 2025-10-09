@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+//an array object is an instance of the Array class
+//can also be declared using [ ]
+//let grades=new Array();
+let grades=[];
+
+//index of an array element [], of type number, string or object, e.g. JSON properties subject and grades 
+
+grades[0]={"subject":"HTML","grade":16};
+grades[1]={"subject":"JS","grade":15};
+grades[2]={"subject":"PHP","grade":17};
+
+console.log(grades);
+
+//push() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+grades.push({"subject":"Database","grade":14});
+
+console.log(grades);
+
+//reverse() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+reverseGrades=grades.reverse();
+console.log(reverseGrades);
+
+
+//method forEach() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+grades.forEach(function(item,index){
+console.log("Array element index : "+index+"\nSubject : "+item.subject+"\nGrade : "+item.grade);
+});
+
+
+
+grades.forEach(function(item,index){
+console.log("Array element index : "+index+"\nSubject : "+item.subject+"\nGrade : "+item.grade);
+
+
+});
+
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

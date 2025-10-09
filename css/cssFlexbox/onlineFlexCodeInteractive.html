@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+function flexContainer(cssFlexContainer,lObjet){
+//	console.log(cssFlexContainer+' / '+lObjet.value+' / '+lObjet.selectedIndex+' / '+lObjet.options[lObjet.selectedIndex].text);
+document.getElementById('flex').style[cssFlexContainer]=lObjet.value;
+if(document.getElementById(cssFlexContainer)) document.getElementById(cssFlexContainer).innerText=lObjet.options[lObjet.selectedIndex].text;
+}	
+function flexItem(order,cssFlexItem,lObjet){
+theFlexItem=document.querySelector(`#flex article:nth-child(${order})`);
+//console.log(theFlexItem);
+theFlexItem.style[cssFlexItem]=lObjet.value;
+if(document.getElementById(cssFlexItem)) document.getElementById(cssFlexItem).innerText=lObjet.options[lObjet.selectedIndex].text;
+
+}
+</script>
+<style type = 'text/css'>
+/* https://annairish.github.io/historicizing/terminology */
+body {font-family: verdana; font-size: 19px; }
+main {display:grid;width:900px;grid-template-columns: 1fr 1fr;grid-template-areas: "left right";}
+div {display:grid;width:900px;grid-template-columns: 1fr 1fr;grid-template-areas: "left right";margin-top: 30px;}
+
+fieldset {line-height: 30px;width:450px;border-radius: 20px;margin-bottom: 25px;}
+fieldset:first-of-type {grid-area: left;}
+fieldset:last-of-type {grid-area: right;}
+
+.champ {display: inline-block;width:140px;}
+.champ2 {display: inline-block;width:180px;}
+
+.flex { width: 800px; border: 1px solid gray; padding: 4px;text-align: center; color: gray;
+    	display: flex; /* block */
+    	flex-direction: row;/* row-reverse */ 
+    	justify-content: flex-start;
+    	align-items: flex-end;/* baseline , center */
+    	flex-wrap: none;/* nowrap , wrap-reverse , none */
+    }
+#flex article { border: 1px solid gray; padding: 4px; background: #A4F2D8;  
+    	width: 100px;
+    	/*flex-basis:100px;*/	
+    }
+/*
+    .flex article:nth-child(2n) {height: 25px;flex: 0 1 auto;}
+    .flex article:nth-child(2n+1) {height: 35px;flex: 1 0 0;}
+*/
+
+    .flex article:nth-child(1) {flex-grow: 0;}
+
+/*    
+.flex article:nth-child(2) {flex-shrink: 2;}
+*/
+.bleu {color:blue;}
+.rouge {color:red;;}
+.i {font-style: italic}
+.gras {font-weight: bold;}
+.vert {color: green;} 
+</style></head>
+<body>
+<main>
+<fieldset>
+	<legend>flex container</legend>
+<form name="flex1">
+<span class="champ">display</span><select onchange="flexContainer('display',this)"><option>flex</option><option>block</option></select><br>		
+<span class="champ">flex-direction</span><select onchange="flexContainer('flexDirection',this)"><option>row</option><option>row-reverse</option></select><br>
+<span class="champ">justify-content</span><select onchange="flexContainer('justifyContent',this)"><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option></select><br>
+<span class="champ">width</span><select onchange="flexContainer('width',this)"><option>800px</option><option>600px</option><option>400px</option></select><br>
+<span class="champ">flex-wrap</span><select onchange="flexContainer('flexWrap',this)"><option>none</option><option>wrap</option><option>wrap-reverse</option></select><br>
+</form>
+</fieldset>
+<fieldset>
+	<legend>flex items</legend>
+items are 100px width<br>
+<span class="champ2">Item 1 flex-grow</span><select onchange="flexItem(1,'flexGrow',this)"><option selected>0</option><option>1</option></select><br>
+
+</fieldset>
+</main>
+<section id="flex" class="flex">
+	<article>Item 1</article>
+	<article>Item 2</article>
+	<article>Item 3</article>
+	<article>Item 4</article>
+	<article>Item 5</article>
+	<article>Item 6</article>
+</section>	
+<div>
+<fieldset>
+<legend>HTML code</legend>
+<code>
+<span class="bleu">&lt;section <span class="bleu"><i>class</i>=</span><span class="rouge">"flex"</span><span class="bleu">></span><br>
+<span class="bleu">&lt;article></span>Item 1<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;article></span>Item 2<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;article></span>Item 3<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;article></span>Item 4<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;article></span>Item 5<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;article></span>Item 6<span class="bleu">&lt;/article></span><br>
+<span class="bleu">&lt;/section></span><br>
+</code>
+</fieldset>
+<fieldset>
+<legend>Main CSS properties</legend>
+<code>
+<i>.flex</i> {<br>
+<span class="bleu gras">display</span>:<span class="vert gras" id="display">flex</span>;<br>
+<span class="bleu gras">width</span>:<span class="rouge i" id="width">800px</span>;<br>
+<span class="bleu gras">flex-direction</span>:<span class="vert gras" id="flexDirection">row</span>;<br>
+<span class="bleu gras">justify-content</span>:<span class="vert gras" id="justifyContent">flex-start</span>;<br>
+<span class="bleu gras">flex-wrap</span>:<span class="vert gras" id="flexWrap">none</span>;<br>
+}<br>
+<i>.flex</i> <span class="gras">article</span> {<br>
+<span class="bleu gras">width</span>:<span class="vert gras">100px</span>;<br>
+}<br>
+<i>.flex</i> <span class="gras">article</span>:nth-child(<span class="rouge i" id="width">1</span>) {<span class="bleu gras">flex-grow</span>: <span class="rouge i" id="flexGrow">0</span>;}
+</code>
+</fieldset>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+//Date object
+//Create an instance new of an object of type Date, in a variable named today. Display the raw contents of this variable using console.log( ) method
+
+var today=new Date();
+console.log(today);
+
+//Search, comment and experiment methods to extract the hour, minutes and seconds from this date: getHours(), getMinutes(), getSeconds()
+var theHour=today.getHours();
+if(theHour<10) theHour='0'+theHour;
+var theMinutes=today.getMinutes();
+if(theMinutes<10) theMinutes='0'+theMinutes;
+var theSeconds=today.getSeconds();
+if(theSeconds<10) theSeconds='0'+theSeconds;
+var digitalClock=theHour+':'+theMinutes+':'+theSeconds;
+console.log(digitalClock);	
+</script>
+</head>
+<body>
+	
+</body>
+</html>

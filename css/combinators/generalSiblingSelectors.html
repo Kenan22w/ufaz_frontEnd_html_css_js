@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>
+* {padding:5px;}
+body {font-family: Verdana;font-size:14pt;border:2px blue solid;}
+h2 {font-size: 14pt;}
+span {background-color: orange;font-size:80%;font-style: italic;}
+address {border:red 2px solid;font-style:normal;}
+div {border:purple 2px solid;}
+
+b {color:red;background-color: white;}
+
+h2 ~ p {background-color: green;color:white;font-weight: bold;}
+</style>
+</head>
+<body>
+<span>Main element body :</span>
+<p><span>A paragraph, first child of body :</span><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet mollis dui, a fringilla purus ornare eu. Morbi convallis, diam eu consectetur tristique, orci arcu lobortis nunc, et blandit dui leo vel justo.
+</p>
+<address><span>An address container, second child of body :</span><br>
+<p><span>A first paragraph, first child of address :</span><br>
+Fusce elementum nibh vel nisl gravida elementum. Vivamus ut lacinia justo. Donec lectus dui, luctus eu ligula in, mollis bibendum neque.
+</p>
+<h2><span>A h2 title, second child of address :</span>
+</h2>
+<p><span>A second paragraph, third child of address, general sibling of h2, i.e. immediately following or not h2 <b>target of (h2 ~ p) selector </b> :</span><br>
+A &lt;p> element that is preceded by (but not necessarily immediately adjacent to) the &lt;h2>, and share the same parent, in this case the &ltaddress>.
+</p>
+<div style="border:purple 2px solid;"><span>A div, fourth child of address:</span>
+<p><span>A paragraph, first child of a div, child of address :</span><br>
+Morbi at augue eleifend, pellentesque turpis vel, aliquet dolor.
+</p>	
+</div>
+<p><span>A third paragraph, fifth child of address, general sibling of h2, i.e. immediately following or not h2 <b>target of (h2 ~ p) selector </b>:</span><br>
+A &lt;p> element that is preceded by (but not necessarily immediately adjacent to) the &lt;h2>, and share the same parent, in this case the &ltaddress> N1.
+</p>
+</address> 
+<h1>selector combinator : h2 ~ p</h1>
+<p style="font-weight:bold;color: red;">General Sibling selector</p>
+
+<img src="combinatorsDOM.jpg" width="800">	
+	
+</body>
+</html>

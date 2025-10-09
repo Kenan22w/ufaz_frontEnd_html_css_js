@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+
+var contact={"lastname":"Christoffel","firstname":"Eric","emails":[{"email":"christof@unistra.fr","type":"pro"},{"email":"christof@gmail.com","type":"private"}]};
+
+console.log("JSON format")
+console.log(contact);
+
+console.log("keys() static method of the class Object, returns list of properties as an Array, confirmed with isArray() static method of Array class");
+let propertyList=Object.keys(contact);
+console.log("list of properties :");
+console.log(propertyList);
+console.log("is an array ? "+Array.isArray(propertyList));
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

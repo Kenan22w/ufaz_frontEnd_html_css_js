@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+
+var contact={"lastname":"Christoffel","firstname":"Eric","emails":[{"email":"christof@unistra.fr","type":"pro"},{"email":"christof@gmail.com","type":"private"}]};
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+console.log("Object.entries() returns a Map object");
+
+propertyValuePairs=Object.entries(contact);
+console.log(propertyValuePairs);
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+for([key,value] of propertyValuePairs){
+  console.log(`${key} : ${value}`);
+}
+
+
+
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

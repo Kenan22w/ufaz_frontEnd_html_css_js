@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Text and Images</title>
+<style>
+body {font-family: Verdana;font-size: 12pt;text-align: justify;}
+
+@media screen and (min-width:800px) {
+main {
+	display: grid;
+	width:1000px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto 1fr 1fr;
+	margin-right:auto;
+	margin-left: auto;
+	grid-gap: 15px;
+	grid-template-areas: 
+		"R1C1toC4 R1C1toC4 R1C1toC4 R1C1toC4"
+		"R2C1toC3 R2C1toC3 R2C1toC3 R2C4"
+		"R3C1     R3C2     R3C3toC4 R3C3toC4";
+}
+#textR1C1to4 {
+	grid-area: R1C1toC4; 
+}
+#textR2C1to3 {
+	grid-area: R2C1toC3; 
+}
+#imgR2C4 {
+	grid-area: R2C4; 
+}
+#textR3C1 {
+	grid-area: R3C1; 
+}
+#imgR3C2 {
+	grid-area: R3C2; 
+}
+#textR3C3to4 {
+	grid-area: R3C3toC4; 
+}
+}
+
+@media screen and (max-width:800px){
+main {display:none;}
+	
+}
+</style>
+</head>
+<body>
+<main>
+<article id="textR1C1to4">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet sapien in justo tempor imperdiet. Pellentesque facilisis tincidunt enim ac eleifend. Duis non velit orci. Maecenas fermentum gravida suscipit. Phasellus ut posuere nulla. Donec varius nibh id posuere bibendum. Aliquam iaculis, lorem et sagittis elementum, leo diam lacinia risus, sit amet posuere erat tortor non massa. Maecenas vel dui porttitor, malesuada ligula nec, malesuada sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed egestas sollicitudin interdum. Integer in leo in eros pretium mollis et id massa.
+</article>
+<article id="textR2C1to3">
+Aliquam sit amet dui convallis, malesuada purus non, bibendum ante. Curabitur mollis convallis turpis a porttitor. Fusce iaculis, est et bibendum pellentesque, lectus lacus cursus libero, eget malesuada dui sem dignissim nibh. Donec non dui in sapien efficitur pellentesque in commodo dolor. Nunc nec risus a nulla condimentum cursus. Maecenas rhoncus tristique erat, eu dapibus dui accumsan in. Etiam congue purus eget risus laoreet aliquet. Aenean tincidunt, ipsum id molestie blandit, dolor eros gravida lectus, elementum aliquet neque nunc quis mi. Vestibulum mi lectus, viverra ut mollis quis, auctor in erat. Donec tristique neque at odio hendrerit, et pretium turpis fringilla. Aenean aliquet lobortis lorem non scelerisque. Morbi luctus ligula in metus convallis accumsan. Duis aliquet iaculis congue. Praesent luctus, mi aliquam ultricies facilisis, magna massa rhoncus dui, id posuere est urna sit amet turpis. Nam nec turpis tortor. Curabitur commodo non lacus ut tempus.	
+</article>
+<img src="icon1.png" id="imgR2C4" alt="image1">
+<article id="textR3C1">
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed nec nisl magna. Aliquam commodo feugiat leo, vitae feugiat enim mattis a. Nam ultricies imperdiet pretium.	
+</article>
+<img src="icon2.png" id="imgR3C2" alt="image1">
+<article id="textR3C3to4">
+Phasellus vitae mauris in purus luctus facilisis. Donec facilisis ex id diam porttitor consectetur. Ut fermentum ante massa, ut convallis velit sollicitudin a. Nulla interdum tincidunt ex, id facilisis enim rutrum et. Morbi ultrices libero egestas, ultrices erat sit amet, pellentesque urna. Proin interdum risus libero, quis lacinia odio viverra sit amet. Sed vulputate ante sit amet elit convallis, quis fringilla felis pretium. Praesent tempus a felis quis sollicitudin. Nulla dapibus orci a elementum lacinia. Integer leo elit, porttitor ac risus vitae, tincidunt venenatis libero. Ut cursus euismod pretium.	
+</article>
+</main>	
+</body>
+</html>

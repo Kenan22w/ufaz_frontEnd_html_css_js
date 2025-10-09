@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>
+body {font-family:Verdana;font-size: 14pt;}
+table {table-layout: auto;width:1000px;border: 1px solid black;border-collapse: collapse;margin-bottom:25px;}
+th, td {border: 1px solid black;}
+a {color:inherit;text-decoration: none;}
+caption {font-size: 80%;text-align:left;padding:10px;}
+</style>
+</head>
+<body>
+<h1>Selector Combinators</h1>
+
+<table>
+<caption><a href="https://apcpedagogie.com/les-combinateurs-css/" target="_blank">https://apcpedagogie.com/les-combinateurs-css/</a></caption>
+<tbody><tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NAME</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SYNTAX</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">COMBINATOR DESCRIPTION</font></font></th>
+</tr>
+<tr>
+<td><a href="descendantSelectors.html" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descendant Combinator
+</font></font><svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"></path>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"></path>
+</svg>
+</a></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">	A B</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This combinator, materialized by a single space, targets an element B contained in an element A, whatever its degree of relationship: a child or a child of a child.</font></font></td>
+</tr>
+<tr>
+<td><a href="directChildSelectors.html" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Direct Child Combinator
+</font></font><svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"></path>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"></path>
+</svg>
+</a>
+</td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A &gt; B</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Unlike the previous one, this combinator, materialized by a superior, targets an element B which is the direct child of an element A.</font></font></td>
+</tr>
+<tr>
+<td><a href="adjacentSiblingSelectors.html" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Adjacent Sibling Combinator
+</font></font><svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"></path>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"></path>
+</svg>
+</a>
+</td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A+B</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This combinator, represented by a plus, targets an element B immediately preceded by an element A. The adjacent word is important: only the first element after element A will be targeted.</font></font></td>
+</tr>
+<tr>
+<td><a href="generalSiblingSelectors.html" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">General Sibling Combinator
+</font></font><svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"></path>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"></path>
+</svg>
+</a>
+</td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A~B</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This combinator targets an element B preceded by an element A. Unlike the adjacent combinator where only the first brother is targeted, here, all brothers are concerned.</font></font></td>
+</tr>
+</tbody></table>
+
+
+<table>
+<caption><a href="https://apcpedagogie.com/les-combinateurs-css/" target="_blank">https://apcpedagogie.com/les-combinateurs-css/</a></caption>
+<tbody><tr>
+<th>NOM</th>
+<th>SYNTAXE</th>
+<th>DESCRIPTION DU SELECTEUR</th>
+</tr>
+<tr>
+<td><a href="descendantSelectors.html" target="_blank">Combinateur descendant
+<svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"/>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"/>
+</svg>
+</a></td>
+<td>	A B</td>
+<td>Ce combinateur, matérialisé par un simple espace, cible un élément B contenu dans un élément A, quelque soit son degré de parenté : un enfant ou un enfant d’enfant.</td>
+</tr>
+<tr>
+<td><a href="directChildSelectors.html" target="_blank">Combinateur enfant
+<svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"/>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"/>
+</svg>
+</a>
+</td>
+<td>A &gt; B</td>
+<td>Contrairement au précédent, ce combinateur, matérialisé par un supérieur, cible un élément B qui est l’enfant direct d’un élément A.</td>
+</tr>
+<tr>
+<td><a href="adjacentSiblingSelectors.html" target="_blank">Combinateur adjacent
+<svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"/>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"/>
+</svg>
+</a>
+</td>
+<td>A + B</td>
+<td>Ce combinateur, matérialisé par un plus, cible un élément B immédiatement précédé par un élément A. Le mot adjacent est important : seul le premier élément après l’élément A sera ciblé.</td>
+</tr>
+<tr>
+<td><a href="generalSiblingSelectors.html" target="_blank">Combinateur général sibling
+<svg width="16px" height="16px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" mirror-in-rtl="true">
+    <path fill="#494c4e" d="M12.1.6a.944.944 0 0 0 .2 1.04l1.352 1.353L10.28 6.37a.956.956 0 0 0 1.35 1.35l3.382-3.38 1.352 1.352a.944.944 0 0 0 1.04.2.958.958 0 0 0 .596-.875V.96a.964.964 0 0 0-.96-.96h-4.057a.958.958 0 0 0-.883.6z"/>
+    <path fill="#494c4e" d="M14 11v5a2.006 2.006 0 0 1-2 2H2a2.006 2.006 0 0 1-2-2V6a2.006 2.006 0 0 1 2-2h5a1 1 0 0 1 0 2H2v10h10v-5a1 1 0 0 1 2 0z"/>
+</svg>
+</a>
+</td>
+<td>A ~ B</td>
+<td>Ce combinateur cible un élément B précédé par un élément A. Contrairement au combinateur adjacent où seul le premier frère est ciblé, ici, tous les frères sont concernés.</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+body {font-family: "Edu AU VIC WA NT Guides", cursive;/*font-family:Verdana;*/font-size:14pt;/*2*/}
+
+p {text-align: justify;}
+.red {color: red;}
+.retrait {text-indent: 25px;}
+#para3 {position:absolute;left:400px;top:250px;width:200px;height:250px;overflow: scroll;background-color: white;border:1px red solid;/*5*/}
+
+a:hover {border:2px orange solid;border-radius:10px;padding:3px;/*6*/}
+
+table {table-layout: auto;width:600px;border:1px black solid;border-collapse: collapse;} /*9*/
+th, td {border:1px solid black;}

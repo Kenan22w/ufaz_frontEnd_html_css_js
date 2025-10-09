@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebForm</title>
+<style>
+body, input, button, output {font-family: Verdana;font-size: 1em;}
+
+.champ1 {display: inline-block;width:120px;}
+
+fieldset {width:450px;border:1px solid red;border-radius: 15px;margin:5px 10px;line-height: 35px;}
+
+input[required]:invalid {border:2px red solid;}
+input[required]:valid {border:2px green solid;}
+
+.pin {display:inline-block;width:75px;}
+</style>
+</head>
+<body>
+<h1>HTML Web Form</h1>
+<form action="sentData.php" method="post" oninput="result.value=level.value">
+<fieldset>
+	<legend>Contact</legend>
+<span class="champ1">Last name</span><input type="text" name="lastname" placeholder="Your last name" required><br>	
+<span class="champ1">First name</span><input type="text" name="firstname" placeholder="Your first name"><br>
+
+<span class="champ1">Email</span><input type="email" name="email" placeholder="prefix@domain.topLevelDomain" pattern=".+@.+\..+"><br>
+<span class="champ1">Web Site</span><input type="url" name="websiteURL" placeholder="https://yourWebsite" pattern="https?://.+"><br>
+<span class="champ1">Phone number</span><input type="tel" name="phoneNumber" placeholder="03 88 65 06 35" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"><br>
+
+<span class="champ1">Date</span><input type="date" name="websiteDate"><br>
+
+<span class="champ1">PIN number</span><input type="number" name="pinNumber" placeholder="4 digits" min="0000" max="9999" step="1" class="pin"><br>
+<span class="champ1">PIN number</span><input type="password" name="pinNumberSecured" placeholder="4 digits" inputmode="numeric" class="pin"><br>
+
+<span class="champ1">Level</span><input type="range" name="level" min="0" max="100" value="50"> <output name="result">50</output>
+
+</fieldset>
+
+
+
+<button>Send</button>
+</form>	
+</body>
+</html>

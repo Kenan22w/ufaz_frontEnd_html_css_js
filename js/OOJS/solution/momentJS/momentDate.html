@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<!--<script src="moment.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script>
+//built-in Date object
+var laDate=new Date()
+console.log(laDate);
+console.log(laDate.getHours());
+
+//moment JS examples
+//PARSING https://momentjs.com/docs/#/parsing/
+laDate=moment();
+
+//DISPLAY FORMAT https://momentjs.com/docs/#/displaying/format/ 
+console.log(laDate.format('DD/MM/YYYY HH:mm:ss'));
+
+//MANIPULATE ADD https://momentjs.com/docs/#/manipulating/add/
+//Methods chaining : calling a method on another method ...
+//call methods one after another without assigning the return value of each method to a variable
+console.log(laDate.add(7,'days').format('DD/MM/YYYY'));
+
+//CDN Content Delivery Network
+//https://cdnjs.com/libraries?q=moment.js
+//https://cdnjs.com/
+//moment.js cheatsheet :
+//https://devhints.io/moment
+//https://momentjs.com/guides/
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

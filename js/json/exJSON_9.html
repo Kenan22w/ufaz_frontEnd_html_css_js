@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+
+var contact={"lastname":"Christoffel","firstname":"Eric","emails":[{"email":"christof@unistra.fr","type":"pro"},{"email":"christof@gmail.com","type":"private"}]};
+
+console.log("JSON format")
+console.log(contact.emails);
+
+console.log("forEach loop on an Array");
+
+if(Array.isArray(contact.emails)){
+  contact.emails.forEach(function(itemEmail){
+      console.log("--------------------");
+    for(var property in itemEmail){
+      console.log("Property : "+property+", value : "+itemEmail[property]);
+    }
+  });
+}
+
+
+
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

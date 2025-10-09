@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+
+var contact={"lastname":"Christoffel","firstname":"Eric","emails":[{"email":"christof@unistra.fr","type":"pro"},{"email":"christof@gmail.com","type":"private"}]};
+
+console.log("JSON format")
+console.log(contact);
+
+console.log("list of properties, for...in loop\narray notation with a constant as an argument, index");
+for(const property in contact){
+  console.log('Property name : '+property+' , value : '+contact[property]);
+}
+
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
