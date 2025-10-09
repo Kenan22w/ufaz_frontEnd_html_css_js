@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+let categoryList=[{"idCategory":"1","category":"Comédie","validCategory":"1"},{"idCategory":"2","category":"Fantastique","validCategory":"1"},{"idCategory":"3","category":"Thriller","validCategory":"1"},{"idCategory":"4","category":"Drame","validCategory":"1"},{"idCategory":"5","category":"Historique","validCategory":"1"}];
+
+
+
+document.onreadystatechange=function(){
+if(document.readyState=="complete"){
+//displayMovieList();	
+}
+}//fin onreadystatechange
+
+
+
+
+</script>
+<style>
+table {table-layout: auto;width: 600px;border:1px solid black;border-collapse: collapse;}	
+th, td {border:1px solid black;}
+</style>
+</head>
+<body>
+<nav>
+	<a href="movieCategoryHWP.html">[ New movie ]</a>
+	<a href="javascript:localStorage.removeItem('movieList');">[ Delete All ]</a>
+</nav>
+<h1>List of movies</h1>
+<section id="main"></section>	
+</body>
+</html>

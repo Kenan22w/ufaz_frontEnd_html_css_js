@@ -1,0 +1,27 @@
+[
+    {
+      "idCategory": "1",
+      "category": "Comédie",
+      "validCategory": "1"
+    },
+    {
+      "idCategory": "2",
+      "category": "Fantastique",
+      "validCategory": "1"
+    },
+    {
+      "idCategory": "3",
+      "category": "Thriller",
+      "validCategory": "1"
+    },
+    {
+      "idCategory": "4",
+      "category": "Drame",
+      "validCategory": "1"
+    },
+    {
+      "idCategory": "5",
+      "category": "Historique",
+      "validCategory": "1"
+    }
+  ]
