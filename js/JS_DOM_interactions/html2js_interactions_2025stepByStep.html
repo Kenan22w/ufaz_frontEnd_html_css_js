@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	body {font-family: Verdana;font-size: 14pt;}
+	section {line-height:30px;}
+	span {width: 120px;display: inline-block;}
+	fieldset {width:350px;}
+
+/* style attribute et getComutedStyle */
+#para1 {text-align: justify;}
+.hide {display: none;}
+</style>
+
+
+
+</head>
+
+<body>
+
+<header>
+   <h1>HTML elements as Javascript Objects</h1>
+   <h2>How to access HTML elements as JS objects to manipulate them ?</h2>
+</header>
+
+<section id="section1">
+    <h3>Paragraph Title</h3>
+    <p id="para1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum nisi in fringilla fermentum. Nam congue ante id bibendum finibus. Ut a consectetur nibh. Curabitur laoreet ullamcorper tempor. Nunc efficitur elit ligula, at fermentum risus vestibulum id. Integer enim lorem, pharetra ac luctus at, porttitor ac nunc. Quisque condimentum et nibh non sollicitudin. Integer sit amet purus dictum, ullamcorper mauris at, scelerisque ligula.
+    </p>
+    <button type="button">Show / Hide</button>
+</section>	
+
+<section id="section2">
+    <h3>HTML Form</h3>
+<form name="leForm" action="#" method="post">
+
+<fieldset>
+<legend>Contact</legend>	
+<span>Last name</span><input type="text" name="lastName" placeholder="Your last name"><br>
+<span>First Name</span><input type="text" name="firstName" placeholder="Your first name"><br>
+</fieldset>
+
+
+<p>
+<h4>Radio</h4>
+<label for="radio1">Radio 1</label><input type="radio" name="radioChoice" value="1" id="radio1" checked>
+<label for="radio2">Radio 2</label><input type="radio" name="radioChoice" value="2" id="radio2">
+<label for="radio2">Radio 3</label><input type="radio" name="radioChoice" value="3" id="radio2">
+</p>
+
+<p>
+<h4>Checkbox</h4>
+<button type="button" onclick="clickAuto(1)">All</button> 
+<button type="button" onclick="clickAuto(-1)">None</button><br> 
+<label for="check1">Checkbox 1</label>
+<input type="checkbox" name="check[]" value="1" id="check1">
+<label for="check2">Checkbox 2</label>
+<input type="checkbox" name="check[]" value="2" id="check2">
+<label for="check3">Checkbox 3</label>
+<input type="checkbox" name="check[]" value="3" id="check3">
+</p>
+          
+</form>
+</section>
+
+
+</body>
+</html>

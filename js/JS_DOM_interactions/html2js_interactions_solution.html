@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	body {font-family: Verdana;font-size: 14pt;}
+	section {line-height:30px;}
+	span {width: 120px;display: inline-block;}
+	fieldset {width:350px;}
+
+    
+#para1 {text-align: justify;}
+.hide {display: none;}
+</style>
+<script>
+
+// alternative à load
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    initApplication();
+  }
+};
+
+
+function initApplication(){
+let para1=document.getElementById('para1');
+console.log(para1);
+
+let textPara1=para1.innerText;
+console.log(textPara1);
+console.log(typeof textPara1); 
+let textPara1TUC=textPara1.toUpperCase();
+para1.innerText=textPara1TUC;
+
+let listeH3=document.getElementsByTagName('h3');
+console.log(listeH3);
+
+let theParentElement=para1.parentElement;
+console.log(theParentElement);
+
+let childrenList=theParentElement.children;
+console.log(childrenList);
+
+let childNodesList=theParentElement.childNodes;
+console.log(childNodesList);
+
+console.log("Inline CSS :"+para1.style.textAlign);
+para1.style.color="red";
+para1.style.fontSize="18pt";
+
+var textPara1Style=window.getComputedStyle(para1);
+console.log(textPara1Style);
+console.log(typeof textPara1Style);
+console.log(textPara1Style.getPropertyValue('font-size'));
+
+
+
+}//end func
+
+function showHide(){
+var listeDesClasses=para1.classList; 
+console.log(listeDesClasses);
+listeDesClasses.toggle('hide');
+}
+</script>
+
+
+</head>
+
+<body>
+
+<header>
+   <h1>HTML elements as Javascript Objects</h1>
+   <h2>How to access HTML elements as JS objects to manipulate them ?</h2>
+</header>
+
+<section id="section1">
+    <h3>Paragraph Title</h3>
+    <p id="para1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum nisi in fringilla fermentum. Nam congue ante id bibendum finibus. Ut a consectetur nibh. Curabitur laoreet ullamcorper tempor. Nunc efficitur elit ligula, at fermentum risus vestibulum id. Integer enim lorem, pharetra ac luctus at, porttitor ac nunc. Quisque condimentum et nibh non sollicitudin. Integer sit amet purus dictum, ullamcorper mauris at, scelerisque ligula.
+    </p>
+<button type="button" onclick="showHide()">Show / Hide</button>
+</section>	
+
+<section id="section2">
+    <h3>HTML Form</h3>
+<form name="leForm" action="#" method="post">
+
+<fieldset>
+<legend>Contact</legend>	
+<span>Last name</span><input type="text" name="lastName" placeholder="Your last name"><br>
+<span>First Name</span><input type="text" name="firstName" placeholder="Your first name"><br>
+</fieldset>
+
+
+<p>
+<h4>Radio</h4>
+<label for="radio1">Radio 1</label><input type="radio" name="radioChoice" value="1" id="radio1" checked>
+<label for="radio2">Radio 2</label><input type="radio" name="radioChoice" value="2" id="radio2">
+<label for="radio2">Radio 3</label><input type="radio" name="radioChoice" value="3" id="radio2">
+</p>
+
+<p>
+<h4>Checkbox</h4>
+<button type="button" onclick="clickAuto(1)">All</button> 
+<button type="button" onclick="clickAuto(-1)">None</button><br> 
+<label for="check1">Checkbox 1</label>
+<input type="checkbox" name="check[]" value="1" id="check1">
+<label for="check2">Checkbox 2</label>
+<input type="checkbox" name="check[]" value="2" id="check2">
+<label for="check3">Checkbox 3</label>
+<input type="checkbox" name="check[]" value="3" id="check3">
+</p>
+          
+</form>
+</section>
+
+<script>
+function clickAuto(etat){
+var listeCB=document.querySelectorAll('input[type="checkbox"]'); 
+console.log(listeCB);
+console.log(typeof listeCB);
+listeCB.forEach(function(item,index){
+item.checked=(etat==1 ) ? true:false;
+});
+}//fin func  
+/*
+let para1=document.getElementById('para1');
+console.log(para1);
+
+let textPara1=para1.innerText;
+console.log(textPara1);
+console.log(typeof textPara1); 
+let textPara1TUC=textPara1.toUpperCase();
+para1.innerText=textPara1TUC;
+*/
+</script>
+</body>
+</html>
