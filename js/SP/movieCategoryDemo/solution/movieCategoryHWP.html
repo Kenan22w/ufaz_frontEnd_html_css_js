@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+let categoryList=[{"idCategory":"1","category":"Comédie","validCategory":"1"},{"idCategory":"2","category":"Fantastique","validCategory":"1"},{"idCategory":"3","category":"Thriller","validCategory":"1"},{"idCategory":"4","category":"Drame","validCategory":"1"},{"idCategory":"5","category":"Historique","validCategory":"1"}];
+
+
+
+
+function saveMovie(){
+//lecture champs de formulaire
+titleMovie=document.getElementById('titleMovie').value;
+idCategory=document.getElementById('idCategory').value;
+console.log(`title : ${titleMovie} , idCategory : ${idCategory}`);
+
+movieList=new Array();//empty array
+
+//lecture localStorage : getItem()
+//https://developer.mozilla.org/fr/docs/Web/API/Storage/getItem
+dataString=localStorage.getItem('movieList');
+if(dataString!=null){
+	movieList=JSON.parse(dataString);
+}
+
+//JSON data film depuis données du formulaire
+newIDMovie=movieList.length+1;//identifiant = PK auto incrémenté
+newMovie={"idMovie":newIDMovie,"titleMovie":titleMovie,"idCategory":idCategory};
+console.log(newMovie);
+
+
+//ajout movieList: push()
+//https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+movieList.push(newMovie);
+console.log(movieList);
+
+//écriture localStorage : setItem(), mais JSON stringify() !
+//https://developer.mozilla.org/fr/docs/Web/API/Storage/setItem
+movieListString=JSON.stringify(movieList);
+console.log(movieListString);
+
+localStorage.setItem('movieList',movieListString);
+
+//reset webform
+//https://developer.mozilla.org/fr/docs/Web/API/HTMLFormElement/reset
+document.getElementById('movieWebform').reset();
+
+
+}//fin func
+
+</script>
+</head>
+<body>
+<nav><a href="seeMovieCategoryHWP.html">[ See the movie list ]</a></nav>
+<header>
+<h1>Insert a new movie</h1>
+</header>
+<section>
+<form id="movieWebform">
+Movie Title <input type="text" id="titleMovie"><br>
+Category <select id="idCategory" required>
+<option value="">-- Choose --</option>
+</select><br>
+<script>
+//category select list dynamic writing
+categoryList.forEach(function(item,index){
+lOption=`<option value="${item.idCategory}">${item.category}</option>`;
+document.getElementById("idCategory").insertAdjacentHTML('beforeend',lOption);
+});
+</script>	
+<button type="button" onclick="saveMovie()">Save</button>
+</form>
+</section>
+</body>
+</html>

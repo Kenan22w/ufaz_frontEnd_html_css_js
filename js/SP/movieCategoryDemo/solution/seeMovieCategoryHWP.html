@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+
+let categoryList=[{"idCategory":"1","category":"Comédie","validCategory":"1"},{"idCategory":"2","category":"Fantastique","validCategory":"1"},{"idCategory":"3","category":"Thriller","validCategory":"1"},{"idCategory":"4","category":"Drame","validCategory":"1"},{"idCategory":"5","category":"Historique","validCategory":"1"}];
+
+let movieList=new Array();;
+
+//lecture données enregistrées localStorage
+dataString=localStorage.getItem('movieList');
+if(dataString!=null){
+	movieList=JSON.parse(dataString);
+}
+
+
+document.onreadystatechange=function(){
+if(document.readyState=="complete"){
+displayMovieList();	
+}
+}//fin onreadystatechange
+
+function displayMovieList(){
+let idMovieSum=0;//not relevant but for the principle when calculating the total km covered, travelled
+let codeHTML="<table><thead><tr><th>Title</th><th>Category</th></tr></thead><tbody>";
+
+//forEach on movieList + template literals
+
+//https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+//https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+
+movieList.forEach(function(item,index){
+idMovieSum+=parseInt(item.idMovie);//not relevant but for the principle
+let searchedIdCategory=item.idCategory;
+let searchedCategory=categoryList.find(categoryElement => categoryElement.idCategory==searchedIdCategory).category;
+//console.log(`Movie ${item.titleMovie} in the category ${searchedCategory}`);
+codeHTML+=`<tr><td>${item.titleMovie}</td><td>${searchedCategory}</td></tr>`;
+
+});
+
+codeHTML+="</tbody></table>";
+
+//écriture dynamique HTML
+//https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentHTML
+document.getElementById('main').insertAdjacentHTML('afterbegin',codeHTML);
+document.getElementById('main').insertAdjacentHTML('beforeend',"<p>Total km covered: "+idMovieSum+'</p>');
+
+}//fin func
+</script>
+<style>
+table {table-layout: auto;width: 600px;border:1px solid black;border-collapse: collapse;}	
+th, td {border:1px solid black;}
+</style>
+</head>
+<body>
+<nav>
+	<a href="movieCategoryHWP.html">[ New movie ]</a>
+	<a href="javascript:localStorage.removeItem('movieList');">[ Delete All ]</a>
+</nav>
+<h1>List of movies</h1>
+<section id="main"></section>	
+</body>
+</html>
