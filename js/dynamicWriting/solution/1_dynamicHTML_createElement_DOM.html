@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript">
+employees =[{"lastname":"Grimard","firstname":"Catherine","telephone":"03.21.39.60.34","email":"catherineGrimard@armyspy.com","address":{"street":"71, street St Ferréol","zipCode":57070,"city":"Metz"}},{"lastname":"Duperré","firstname":"Jean","telephone":"05.34.60.16.90","email":"Jean.Duperre@jourrapide.com","address":{"street":"75, street Jean Vilar","zipCode":24100,"city":"Bergerac"}},{"lastname":"Givry","firstname":"Denis","telephone":"04.98.02.77.68","email":"DenisGivry@teleworm.us","address":{"street":"32, Avenue De Marlioz","zipCode":74100,"city":"Annemasse"}}];	
+
+console.log(employees);
+
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    dynamicWriting();
+  }
+};	
+
+function dynamicWriting(){
+var nbEmployees=employees.length;
+
+var htmlTable=document.createElement('table');
+var newLine,newCell,textContent;
+
+for(let i=0;i<nbEmployees;i++){
+newLine=document.createElement('tr');
+
+newCell=document.createElement('td');
+textContent=document.createTextNode(employees[i].lastname);
+newCell.appendChild(textContent);
+newLine.appendChild(newCell);
+
+newCell=document.createElement('td');
+textContent=document.createTextNode(employees[i].firstname);
+newCell.appendChild(textContent);
+newLine.appendChild(newCell);
+
+newCell=document.createElement('td');
+textContent=document.createTextNode(employees[i].email);
+newCell.appendChild(textContent);
+newLine.appendChild(newCell);
+
+htmlTable.appendChild(newLine);
+}//end for
+
+document.getElementById('main').appendChild(htmlTable);
+}//end func
+</script>
+
+<style>
+	body {font-family: Verdana;font-size: 12pt;}
+	table {table-layout: auto;width: 800px;border:1px solid black;border-collapse: collapse;}
+	th, td {border:1px solid black;}
+</style>
+</head>
+<body>
+<section id="main"></section>	
+</body>
+</html>
