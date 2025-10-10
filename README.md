@@ -1,2 +1,2 @@
-# lpdwca_html_css_js_php
-Formation LP DWCA programmation front et back end
+# UFAZ Front-End HTML, CSS, Javascript
+Front-End Development Learning Resources
