@@ -1,18 +1,18 @@
 [
   {
-    "idFilm": 1,
-    "titreFilm": "Les bronzés",
-    "annee": 1978,
-    "resume": "Dans un village du club Méditerranée situé en Côte-d'Ivoire, des vacanciers arrivent, décidés à oublier leur quotidien et leurs peines de coeur.",
-    "idCategorie": 1,
-    "idPaysOrigine": 1
+    "idMovie":1,
+    "movieTitle":"Les bronzés",
+    "year":1978,
+    "summary":"Dans un village du club Méditerranée situé en Côte-d'Ivoire, des vacanciers arrivent, décidés à oublier leur quotidien et leurs peines de coeur.",
+    "idCategory":1,
+    "idOrigineCountry":1
   },
   {
-    "idFilm": 2,
-    "titreFilm": "Coup de foudre à Nothing Hill",
-    "annee": 1999,
-    "resume": "William Thacker, libraire timide et maladroit, et Anna Scott, célèbre actrice hollywoodienne, se rencontrent par hasard et vivent la plus improbable des romances.",
-    "idCategorie": 2,
-    "idPaysOrigine": 2
-  }
+    "idMovie":2,
+    "movieTitle":"Coup de foudre à Nothing Hill",
+    "year":1999,
+    "summary":"William Thacker, libraire timide et maladroit, et Anna Scott, célèbre actrice hollywoodienne, se rencontrent par hasard et vivent la plus improbable des romances.",
+    "idCategory":2,
+    "idOrigineCountry":2
+  }  
 ]
