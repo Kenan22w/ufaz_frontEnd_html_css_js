@@ -1,0 +1,14 @@
+[
+  {
+    "idCategory":1,
+    "category":"Comedy"   
+  },
+  {
+    "idCategory":2,
+    "category":"Romance"   
+  },
+  {
+    "idCategory":3,
+    "category":"Action"   
+  }
+]
