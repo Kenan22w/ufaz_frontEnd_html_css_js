@@ -20,10 +20,11 @@ if (typeof trustedTypes === "undefined")
 const politique = trustedTypes.createPolicy("content-policy", {
   createHTML(input) {
 	const cleanHTML = DOMPurify.sanitize(input, { ALLOWED_TAGS: ['table', 'thead','tbody','tr','th','td'] });
-    return cleanHTML; //see DOMPurify.sanitize()
-  },
+    return cleanHTML; 
+  }
 });
 
+//https://nhimg.org/html-sanitisation-guide
 
 document.onreadystatechange = function () {
   if (document.readyState === "complete") {
