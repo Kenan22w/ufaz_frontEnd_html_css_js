@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
@@ -14,11 +15,298 @@
     <meta name="author" content="Kanan Mikayilzada">
 
     <title>Kanan Mikayilzada — Curriculum Vitae</title>
+
+    <style>
+
+        /* General text formatting */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #253247;
+            background-color: #ffffff;
+        }
+
+        /* ID selector */
+
+        #cv-title {
+            font-size: 2rem;
+            color: #17365b;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid #274d73;
+            padding-bottom: 0.3em;
+        }
+
+        /* Heading formatting */
+
+        h2 {
+            font-size: 1.35rem;
+            color: #18486b;
+            background-color: #edf4fa;
+            border-left: 4px solid #276b97;
+            padding: 0.25em 0.5em;
+            margin-top: 1.25em;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #24476b;
+        }
+
+        h4 {
+            font-size: 1rem;
+            color: #3f536a;
+        }
+
+        /* Pseudo-element */
+
+        h2::before {
+            content: "▸ ";
+            color: #276b97;
+        }
+
+        /* Class selector */
+
+        .intro {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Adjacent sibling selector */
+
+        h3 + p {
+            text-align: justify;
+        }
+
+        h2 + h3 {
+            margin-top: 0.75em;
+        }
+
+        /* General sibling selector */
+
+        h3 ~ h4 {
+            color: #3b5976;
+        }
+
+        /* Contact information */
+
+        address {
+            font-style: normal;
+        }
+
+        /* Image and caption */
+
+        figure {
+            margin: 1em 0;
+        }
+
+        figure img {
+            border: 2px solid #a6b9ce;
+            padding: 3px;
+        }
+
+        figure > figcaption {
+            font-size: 0.875rem;
+            color: #576879;
+            font-style: italic;
+        }
+
+        /* Thematic breaks */
+
+        hr {
+            border: 0;
+            border-top: 1px solid #b8c8d8;
+            margin: 1.2em 0;
+        }
+
+        /* Lists */
+
+        ul {
+            list-style-type: square;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        /* Direct child selectors */
+
+        ul > li,
+        ol > li {
+            padding-bottom: 0.2em;
+        }
+
+        /* Structural pseudo-class */
+
+        ol > li:first-child {
+            font-weight: 600;
+        }
+
+        /* Description lists */
+
+        dl > dt {
+            font-weight: bold;
+            color: #18486b;
+        }
+
+        dl > dd {
+            margin-bottom: 0.35em;
+        }
+
+        /* Hyperlink pseudo-classes */
+
+        a:link {
+            color: #155b9b;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #694283;
+        }
+
+        a:hover {
+            color: #9b3d17;
+            background-color: #fff0d9;
+        }
+
+        a:focus {
+            outline: 2px solid #155b9b;
+            outline-offset: 2px;
+        }
+
+        a:active {
+            color: #b02222;
+        }
+
+        /* Attribute selectors */
+
+        a[href^="https://"] {
+            text-decoration-thickness: 2px;
+        }
+
+        abbr[title] {
+            text-decoration: underline dotted;
+            cursor: help;
+        }
+
+        /* Inline text formatting */
+
+        strong {
+            font-weight: 700;
+            color: #1d3f63;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        i[lang="fr"] {
+            color: #365775;
+        }
+
+        mark {
+            background-color: #fff1a8;
+            color: #253247;
+            padding: 0.05em 0.15em;
+        }
+
+        q {
+            font-style: italic;
+            color: #365775;
+        }
+
+        cite {
+            font-style: italic;
+            color: #335a7c;
+        }
+
+        small {
+            font-size: 0.875rem;
+            color: #576879;
+        }
+
+        meter {
+            accent-color: #276b97;
+        }
+
+        /* Table styling */
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #8298ad;
+            margin: 0.8em 0;
+        }
+
+        caption {
+            font-weight: 700;
+            color: #18486b;
+            padding-bottom: 0.5em;
+        }
+
+        th,
+        td {
+            border: 1px solid #8298ad;
+            padding: 0.4em 0.7em;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #dcebf7;
+        }
+
+        /* Structural pseudo-class */
+
+        tbody tr:nth-child(even) {
+            background-color: #f0f5fa;
+        }
+
+        tbody tr:hover {
+            background-color: #e1eef9;
+        }
+
+        tfoot {
+            font-weight: bold;
+            background-color: #e8f0f7;
+        }
+
+        /* Code example formatting */
+
+        pre {
+            font-family: "DejaVu Sans Mono", Consolas, monospace;
+            background-color: #f2f5f8;
+            color: #26394d;
+            border-left: 3px solid #276b97;
+            padding: 0.7em;
+            white-space: pre-wrap;
+        }
+
+        code,
+        kbd,
+        samp,
+        var {
+            font-family: "DejaVu Sans Mono", Consolas, monospace;
+        }
+
+        p > code {
+            background-color: #eff3f7;
+            border: 1px solid #c5d3df;
+            padding: 0.1em 0.25em;
+        }
+
+        /* Pseudo-element */
+
+        pre::first-line {
+            color: #18486b;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Kanan Mikayilzada — Curriculum Vitae</h1>
+    <h1 id="cv-title">Kanan Mikayilzada — Curriculum Vitae</h1>
 
     <figure>
         <img
@@ -64,7 +352,7 @@
 
     <h2>Professional Profile</h2>
 
-    <p>
+    <p class="intro">
         I study Computer Science at the
         <abbr title="French-Azerbaijani University">UFAZ</abbr>.
 
@@ -151,18 +439,9 @@
     <h4>Project Workflow</h4>
 
     <ol>
-        <li>
-            Identify the parking-availability problem.
-        </li>
-
-        <li>
-            Design a sensor-supported prototype concept.
-        </li>
-
-        <li>
-            Develop, test, and present the solution
-            as a team.
-        </li>
+        <li>Identify the parking-availability problem.</li>
+        <li>Design a sensor-supported prototype concept.</li>
+        <li>Develop, test, and present the solution as a team.</li>
     </ol>
 
     <h3>Hotel Management System (C)</h3>
@@ -188,9 +467,9 @@
         For example, the strings
         <code>"Kanan"</code> and
         <code>"kanan"</code>
-        contain different characters;
+        contain different characters.
 
-        a C program must decide how to compare them.
+        A C program must decide how to compare them.
     </p>
 
     <h2>Technical Skills</h2>
@@ -283,9 +562,9 @@ int main(void) {
 }</code></pre>
 
     <p>
-        Here <var>available</var> is a variable;
+        Here <var>available</var> is a variable.
 
-        the output is
+        The output is
         <samp>Available spaces: 6</samp>.
 
         In VS Code,
@@ -315,7 +594,6 @@ int main(void) {
 
     <ul>
         <li>Python Advanced</li>
-
         <li>C Advanced</li>
 
         <li>
