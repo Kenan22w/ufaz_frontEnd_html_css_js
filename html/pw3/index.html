@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    /* Common styles NE PAS MODIFIER */
+    body, html{
+      padding:0;
+      margin:0;
+      background:#999;
+      width:100vw;
+      min-height:100vh;
+    }
+    header{
+      background:#feb;
+    }
+    article{
+      background:#dd8;
+    }
+    nav{
+      background:#ccf;
+    }
+    aside{
+      background:#ccf;
+    }
+    footer{
+      background:#feb;
+    }
+    header, article, nav, aside, footer{
+      border-radius:5px;
+      padding:5px;
+    }
+
+    /* Votre code CSS pour design par Grid ci-après */
+
+    /* Grid container: dimensions, padding, and gutters */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      width: 100vw;
+      height: 100vh;
+      padding: 8px;
+      gap: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    /* The original five semantic elements are the Grid items */
+    header, article, nav, aside, footer {
+      border: 1px solid #888;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    /* Desktop: 3 columns / 3 rows; header and footer span all columns */
+    @media screen and (min-width: 640px) {
+      body {
+        grid-template-columns:
+          minmax(105px, 20vw) minmax(0, 1fr) minmax(105px, 20vw);
+        grid-template-rows:
+          minmax(50px, 1fr) minmax(0, 6fr) minmax(50px, 1fr);
+        grid-template-areas:
+          "head head head"
+          "nav  main aside"
+          "foot foot foot";
+      }
+
+      header  { grid-area: head; }
+      article { grid-area: main; }
+      nav     { grid-area: nav; }
+      aside   { grid-area: aside; }
+      footer  { grid-area: foot; }
+    }
+
+    /* Mobile: 1 column / 5 rows, in the teacher's specified order */
+    @media screen and (max-width: 640px) {
+      body {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows:
+          minmax(40px, 1fr)
+          minmax(80px, 4fr)
+          repeat(3, minmax(40px, 1fr));
+        grid-template-areas: none;
+      }
+
+      /* At exactly 640px, these rules override the desktop areas. */
+      header, article, nav, aside, footer {
+        grid-area: auto;
+        grid-column: 1;
+      }
+
+      header  { grid-row: 1; }
+      article { grid-row: 2; }
+      nav     { grid-row: 3; }
+      aside   { grid-row: 4; }
+      footer  { grid-row: 5; }
+    }
+
+
+
+
+
+
+
+  </style>
+</head>
+<!-- NE PAS MODIFIER LE CODE CI-APRES -->
+<body>
+  <header>Header</header>
+  <article>Article</article>
+  <nav>Navigation</nav>
+  <aside>Aside</aside>
+  <footer>Footer</footer>
+</body>
+</html>
