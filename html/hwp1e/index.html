@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Experience - Homework Step 1E</title>
+
+    <script>
+        // Step 1B: Weather conditions
+        let weather = [
+            {"idWeather":1,"weather":"Sunny"},
+            {"idWeather":2,"weather":"Cloudy"},
+            {"idWeather":3,"weather":"Light rain"},
+            {"idWeather":4,"weather":"Heavy rain"},
+            {"idWeather":5,"weather":"Foggy"},
+            {"idWeather":6,"weather":"Windy"},
+            {"idWeather":7,"weather":"Snowy"}
+        ];
+
+        // Step 1C: Other driving conditions
+        let roadTypes = [
+            {"idRoadType":1,"roadType":"Urban streets"},
+            {"idRoadType":2,"roadType":"Motorway"},
+            {"idRoadType":3,"roadType":"Rural roads"},
+            {"idRoadType":4,"roadType":"Residential streets"},
+            {"idRoadType":5,"roadType":"Mountain roads"}
+        ];
+
+        let traffic = [
+            {"idTraffic":1,"traffic":"Light"},
+            {"idTraffic":2,"traffic":"Moderate"},
+            {"idTraffic":3,"traffic":"Heavy"},
+            {"idTraffic":4,"traffic":"Stop-and-go"},
+            {"idTraffic":5,"traffic":"Congested"}
+        ];
+
+        let maneuvers = [
+            {"idManeuver":1,"maneuver":"Parallel parking"},
+            {"idManeuver":2,"maneuver":"Roundabout"},
+            {"idManeuver":3,"maneuver":"Hill start"},
+            {"idManeuver":4,"maneuver":"Reverse parking"},
+            {"idManeuver":5,"maneuver":"Lane changing"}
+        ];
+
+        // Step 1D: Driving experiences
+        let experiences = [
+            {
+                "idExperience":1,
+                "date":"2026-10-28",
+                "startingTime":"08:30",
+                "endingTime":"09:20",
+                "km":22.4,
+                "idWeather":1,
+                "idRoadType":1,
+                "idTraffic":2,
+                "idManeuver":1
+            },
+            {
+                "idExperience":2,
+                "date":"2026-10-30",
+                "startingTime":"14:00",
+                "endingTime":"15:10",
+                "km":35.6,
+                "idWeather":2,
+                "idRoadType":3,
+                "idTraffic":1,
+                "idManeuver":3
+            },
+            {
+                "idExperience":3,
+                "date":"2026-11-01",
+                "startingTime":"10:15",
+                "endingTime":"11:00",
+                "km":18.2,
+                "idWeather":3,
+                "idRoadType":4,
+                "idTraffic":4,
+                "idManeuver":4
+            }
+        ];
+
+        // Display the data in the browser console
+        console.log("Driving experiences:", experiences);
+        console.log("Weather conditions:", weather);
+        console.log("Road types:", roadTypes);
+        console.log("Traffic conditions:", traffic);
+        console.log("Driving maneuvers:", maneuvers);
+
+    </script>
+</head>
+
+<body>
+    <h1>Driving Experience Data</h1>
+    <p>Open the browser's developer console (F12) to view the data.</p>
+</body>
+</html>
