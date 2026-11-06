@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UFAZ - JavaScript Practical Exercises</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 820px;
+      margin: 45px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #183153;
+    }
+    h1 { margin-bottom: 0; }
+    p { color: #41546d; }
+    code {
+      background: #eef2f7;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+
+<body>
+  <h1>JavaScript Practical Exercises</h1>
+  <p>Variables, operators, loops, conditions, Date, String and Array.</p>
+  <p>Open Developer Tools (<strong>F12</strong>) &rarr; <strong>Console</strong> to see the answers.</p>
+
+  <script>
+    "use strict";
+
+    function heading(title) {
+      console.log("\n========== " + title + " ==========");
+    }
+
+    // ========================================
+    // PART 1 — VARIABLES AND OPERATORS
+    // ========================================
+    heading("PART 1: VARIABLES AND OPERATORS");
+
+    // Exercise 1: Arithmetic operations
+    const a = 12;
+    let b = 5;
+
+    heading("1. Arithmetic");
+    console.log("a + b =", a + b);
+    console.log("a - b =", a - b);
+    console.log("a * b =", a * b);
+    console.log("a / b =", a / b);
+
+    // Exercise 2: Modulo
+    heading("2. Modulo");
+    console.log("5 % 2 =", 5 % 2);
+    console.log("12 % 5 =", a % b);
+
+    // Exercise 3: Square and cube
+    heading("3. Powers");
+
+    const number = 4;
+
+    console.log("Square =", Math.pow(number, 2));
+    console.log("Cube =", Math.pow(number, 3));
+
+    // Exercise 4: Rectangle
+    heading("4. Rectangle and variable scope");
+
+    var globalDescription = "Visible in this script and in functions";
+
+    function rectangle(length, width) {
+      var localDescription = "Visible only inside rectangle()";
+
+      console.log("Global variable inside function:", globalDescription);
+      console.log("Local variable inside function:", localDescription);
+
+      return {
+        perimeter: 2 * (length + width),
+        area: length * width
+      };
+    }
+
+    const dimensions = rectangle(8, 3);
+
+    console.log("Perimeter =", dimensions.perimeter);
+    console.log("Area =", dimensions.area);
+    console.log("Global variable outside function:", globalDescription);
+    console.log("A var declared inside a function is NOT accessible outside it.");
+
+    // Exercise 5: Circle
+    heading("5. Circle");
+
+    const radius = 6;
+
+    console.log("Diameter =", 2 * radius);
+    console.log("Circumference =", 2 * Math.PI * radius);
+    console.log("Area =", Math.PI * Math.pow(radius, 2));
+
+    // Exercise 6: VAT
+    heading("6. VAT");
+
+    function calculateVAT(amountWithoutVAT) {
+      const VAT_RATE = 0.20;
+      const vat = amountWithoutVAT * VAT_RATE;
+
+      return {
+        vat: vat,
+        total: amountWithoutVAT + vat
+      };
+    }
+
+    const priceWithoutVAT = 1000;
+    const priceInfo = calculateVAT(priceWithoutVAT);
+
+    console.log("Price without VAT =", priceWithoutVAT);
+    console.log("VAT =", priceInfo.vat);
+    console.log("Price including VAT =", priceInfo.total);
+
+    if (true) {
+      const insideBlock = "This const exists only inside this block";
+      console.log(insideBlock);
+    }
+
+    console.log("A const declared inside a block is NOT accessible outside it.");
+
+    // Exercise 7: Convert days
+    heading("7. Days to hours / minutes / seconds");
+
+    const days = 5;
+
+    console.log("Hours =", days * 24);
+    console.log("Minutes =", days * 24 * 60);
+    console.log("Seconds =", days * 24 * 60 * 60);
+
+    // Exercise 8: Convert seconds
+    heading("8. Seconds to days / hours / minutes / seconds");
+
+    const totalSeconds = 123456;
+
+    const completeDays = Math.floor(totalSeconds / 86400);
+    const completeHours = Math.floor((totalSeconds % 86400) / 3600);
+    const completeMinutes = Math.floor((totalSeconds % 3600) / 60);
+    const remainingSeconds = totalSeconds % 60;
+
+    console.log(
+      totalSeconds, "seconds =",
+      completeDays, "days,",
+      completeHours, "hours,",
+      completeMinutes, "minutes,",
+      remainingSeconds, "seconds"
+    );
+
+    // ========================================
+    // PART 2 — LOOPS
+    // ========================================
+    heading("PART 2: LOOPS");
+
+    // Exercise 1: for, while, do...while
+    heading("1. for / while / do...while");
+
+    for (let i = 8; i <= 12; i++) {
+      console.log("for:", i);
+    }
+
+    let counter = 8;
+
+    while (counter <= 12) {
+      console.log("while:", counter);
+      counter++;
+    }
+
+    counter = 8;
+
+    do {
+      console.log("do...while:", counter);
+      counter++;
+    } while (counter <= 12);
+
+    console.log("The let variable i in the for loop has block scope.");
+
+    // Exercise 2: Even numbers
+    heading("2. Even numbers from 8 to 12");
+
+    for (let i = 8; i <= 12; i++) {
+      if (i % 2 === 0) {
+        console.log(i);
+      }
+    }
+
+    // Exercise 3: Multiplication table
+    heading("3. Multiplication table");
+
+    const multiplicand = 7;
+
+    for (let i = 1; i <= 10; i++) {
+      console.log(`${multiplicand} x ${i} = ${multiplicand * i}`);
+    }
+
+    // Exercise 4: Sum and factorial
+    heading("4. Sum and factorial");
+
+    const n = 4;
+    let sum = 0;
+    let factorial = 1;
+
+    for (let i = 1; i <= n; i++) {
+      sum += i;
+      factorial *= i;
+    }
+
+    console.log(`Sum from 1 to ${n} =`, sum);
+    console.log(`${n}! =`, factorial);
+
+    // Exercise 5: Approximate PI
+    heading("5. Approximate PI with the Basel series");
+
+    function approximatePi(terms) {
+      let seriesSum = 0;
+
+      for (let k = 1; k <= terms; k++) {
+        seriesSum += 1 / (k * k);
+      }
+
+      return Math.sqrt(6 * seriesSum);
+    }
+
+    console.log("PI approximation (1,000 terms) =", approximatePi(1000));
+    console.log("PI approximation (10,000 terms) =", approximatePi(10000));
+    console.log("Math.PI =", Math.PI);
+
+    // ========================================
+    // PART 3 — CONDITIONAL STATEMENTS
+    // ========================================
+    heading("PART 3: CONDITIONAL STATEMENTS");
+
+    // Exercise 1: Comparison with 100
+    heading("1. Greater / smaller than 100");
+
+    const testNumber = 125;
+
+    if (testNumber > 100) {
+      console.log(testNumber, "is greater than 100");
+    } else if (testNumber < 100) {
+      console.log(testNumber, "is smaller than 100");
+    } else {
+      console.log(testNumber, "equals 100");
+    }
+
+    // Exercise 2: Sport categories
+    // Illustrative age ranges, not official French kayak classifications.
+    heading("2. Sport age category (illustrative)");
+
+    const age = 17;
+    let sportCategory;
+
+    if (age < 10) {
+      sportCategory = "Poussin";
+    } else if (age < 12) {
+      sportCategory = "Benjamin";
+    } else if (age < 14) {
+      sportCategory = "Minime";
+    } else if (age < 16) {
+      sportCategory = "Cadet";
+    } else if (age < 18) {
+      sportCategory = "Junior";
+    } else {
+      sportCategory = "Senior";
+    }
+
+    console.log("Age:", age, "Example category:", sportCategory);
+
+    // Exercise 3: Discount and VAT
+    heading("3. Discount and VAT");
+
+    const originalAmount = 1500;
+    let discountRate;
+
+    if (originalAmount >= 2000) {
+      discountRate = 0.10;
+    } else if (originalAmount >= 1000) {
+      discountRate = 0.05;
+    } else {
+      discountRate = 0;
+    }
+
+    const discount = originalAmount * discountRate;
+    const reducedAmount = originalAmount - discount;
+    const tax = reducedAmount * 0.20;
+    const finalAmount = reducedAmount + tax;
+
+    console.log("Original amount (excl. VAT):", originalAmount);
+    console.log("Discount rate:", discountRate * 100 + "%");
+    console.log("Discount amount:", discount);
+    console.log("Reduced amount (excl. VAT):", reducedAmount);
+    console.log("VAT (20%):", tax);
+    console.log("Final amount (incl. VAT):", finalAmount);
+
+    // ========================================
+    // PART 4 — DATE OBJECT
+    // ========================================
+    heading("PART 4: DATE OBJECT");
+
+    const today = new Date();
+
+    console.log("Raw Date object:", today);
+
+    const pad2 = (value) => String(value).padStart(2, "0");
+
+    const digitalTime =
+      `${pad2(today.getHours())}:${pad2(today.getMinutes())}:${pad2(today.getSeconds())}`;
+
+    const formattedDate =
+      `${today.getFullYear()}-${pad2(today.getMonth() + 1)}-${pad2(today.getDate())}`;
+
+    console.log("Digital clock hh:mm:ss:", digitalTime);
+    console.log("Date YYYY-MM-DD:", formattedDate);
+
+    // Moment.js exercises
+    if (typeof moment === "function") {
+      heading("Moment.js exercises");
+
+      const momentToday = moment();
+
+      console.log("YYYY-MM-DD:", momentToday.format("YYYY-MM-DD"));
+      console.log("DD/MM/YYYY:", momentToday.format("DD/MM/YYYY"));
+      console.log("Full day:", momentToday.format("dddd"));
+      console.log("Short month:", momentToday.format("MMM"));
+      console.log("Week of year:", momentToday.week());
+
+      console.log(
+        "Following week:",
+        momentToday.clone().add(1, "week").format("YYYY-MM-DD")
+      );
+
+      console.log(
+        "After 7 days:",
+        momentToday.clone().add(7, "days").format("YYYY-MM-DD")
+      );
+
+      console.log(
+        "After 2 months:",
+        momentToday.clone().add(2, "months").format("YYYY-MM-DD")
+      );
+
+      console.log(
+        "Last day of year:",
+        momentToday.clone().endOf("year").format("YYYY-MM-DD")
+      );
+    } else {
+      console.log("Moment.js unavailable (CDN not loaded). Native Date examples still work.");
+    }
+
+    // ========================================
+    // PART 5 — STRING OBJECT
+    // ========================================
+    heading("PART 5: STRING OBJECT");
+
+    const exampleText = "  Lorem ipsum dolor sit amet  ";
+
+    console.log("Original:", JSON.stringify(exampleText));
+    console.log("Length:", exampleText.length);
+    console.log("Uppercase:", exampleText.toUpperCase());
+    console.log("Lowercase:", exampleText.toLowerCase());
+    console.log("Character at position 2:", exampleText.charAt(2));
+    console.log("Character at position 2 using []:", exampleText[2]);
+    console.log("Character code at position 2:", exampleText.charCodeAt(2));
+    console.log("Substring from 2 to 7:", exampleText.substring(2, 7));
+    console.log("Last 5 characters:", exampleText.slice(-5));
+
+    console.log(
+      "Remove beginning spaces:",
+      JSON.stringify(exampleText.trimStart())
+    );
+
+    console.log(
+      "Remove ending spaces:",
+      JSON.stringify(exampleText.trimEnd())
+    );
+
+    console.log(
+      "Remove spaces at both ends:",
+      JSON.stringify(exampleText.trim())
+    );
+
+    console.log("Split words:", exampleText.trim().split(" "));
+
+    // ========================================
+    // PART 6 — ARRAY OBJECT
+    // ========================================
+    heading("PART 6: ARRAY OBJECT");
+
+    const grades = [];
+
+    grades[0] = { subject: "HTML", grade: 16 };
+    grades[1] = { subject: "JavaScript", grade: 18 };
+    grades[2] = { subject: "CSS", grade: 17 };
+
+    console.log("Initial grades:", grades.map(item => ({ ...item })));
+    console.log("Array length:", grades.length);
+    console.log("Is an array?", Array.isArray(grades));
+
+    grades.push({ subject: "Databases", grade: 14 });
+
+    console.log("After push():", grades.map(item => ({ ...item })));
+
+    const removedGrade = grades.pop();
+
+    console.log("Removed using pop():", removedGrade);
+    console.log("After pop():", grades.map(item => ({ ...item })));
+
+    console.log("Reversed copy:", [...grades].reverse());
+
+    console.log(
+      "Sorted by subject:",
+      [...grades].sort((x, y) => x.subject.localeCompare(y.subject))
+    );
+
+    console.log(
+      "Subjects joined:",
+      grades.map(item => item.subject).join(", ")
+    );
+
+    console.log("First two items with slice():", grades.slice(0, 2));
+
+    console.log("Loop over each array item:");
+
+    grades.forEach(function(item, index) {
+      console.log(`Index ${index}: ${item.subject} - ${item.grade}`);
+    });
+
+    heading("END OF EXERCISES");
+    console.log("All exercises have run. Review each section above.");
+
+  </script>
+</body>
+</html>
