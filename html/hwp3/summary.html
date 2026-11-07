@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Summary and statistics of accompanied driving experiences.">
+  <title>Accompanied Driving Monitor | Summary</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>Accompanied Driving Monitor</h1>
+      <p>Your driving experience summary and statistics.</p>
+    </div>
+  </header>
+
+  <main class="container wide">
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="index.html">← Record experience</a>
+      <a href="summary.html" aria-current="page">View summary</a>
+    </nav>
+
+    <section class="card" aria-labelledby="summary-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR PROGRESS</p>
+          <h2 id="summary-title">Driving experience overview</h2>
+          <p class="muted">Statistics update when you change the filters.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid" aria-live="polite">
+        <div class="stat"><span>Experiences</span><strong id="recordCount">0</strong></div>
+        <div class="stat"><span>Total distance</span><strong id="totalDistance">0.0 km</strong></div>
+        <div class="stat"><span>Average distance</span><strong id="averageDistance">0.0 km</strong></div>
+        <div class="stat"><span>Shortest / longest</span><strong id="rangeDistance">—</strong></div>
+      </div>
+
+      <div class="filter-panel">
+        <h3>Filter experiences</h3>
+        <div class="filter-grid">
+          <div class="form-field">
+            <label for="filterWeather">Weather</label>
+            <select id="filterWeather"><option value="">All weather</option></select>
+          </div>
+          <div class="form-field">
+            <label for="filterManeuver">Maneuver</label>
+            <select id="filterManeuver"><option value="">All maneuvers</option></select>
+          </div>
+          <div class="filter-action"><button type="button" class="button-secondary" id="resetFilters">Reset filters</button></div>
+        </div>
+      </div>
+
+      <h3>Saved experiences</h3>
+      <p class="muted" id="resultCount" aria-live="polite">Showing 0 experiences</p>
+      <p id="emptyMessage" class="empty">No saved experiences yet. <a href="index.html">Add your first journey.</a></p>
+      <div class="table-scroll">
+        <table>
+          <caption>Driving experiences saved in your browser</caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Date</th>
+              <th scope="col">Departure</th>
+              <th scope="col">Arrival</th>
+              <th scope="col">Km</th>
+              <th scope="col">Weather</th>
+              <th scope="col">Road type</th>
+              <th scope="col">Traffic</th>
+              <th scope="col">Maneuver</th>
+            </tr>
+          </thead>
+          <tbody id="experienceRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card chart-card" aria-labelledby="weather-title">
+      <h2 id="weather-title">Weather breakdown</h2>
+      <p class="muted">Number of saved experiences by weather condition (current filters).</p>
+      <div id="weatherChart" class="bars" aria-live="polite"></div>
+    </section>
+
+    <div class="bottom-actions">
+      <a class="button-link" href="index.html">+ Record another experience</a>
+      <button type="button" id="clearButton" class="button-danger">Delete all saved records</button>
+    </div>
+    <p id="summaryMessage" class="message" role="status" aria-live="polite"></p>
+    <p class="privacy-note">Data remain in this browser's localStorage. Deleting site data removes them.</p>
+  </main>
+  <footer>Created by Kanan Mikayilzada · UFAZ Front-End Programming · 2026</footer>
+</body>
+</html>

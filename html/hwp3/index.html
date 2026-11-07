@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Record accompanied driving experiences and monitor progress.">
+  <title>Accompanied Driving Monitor | Record an experience</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <!-- JSON-compatible category arrays from Step 1; JavaScript dynamically creates all options. -->
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>Accompanied Driving Monitor</h1>
+      <p>Track your journeys, build experience, and review your progress.</p>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Record experience</a>
+      <a href="summary.html">View summary →</a>
+    </nav>
+
+    <section class="card" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DRIVING LOG</p>
+          <h2 id="form-title">New driving experience</h2>
+          <p class="muted">Fields marked <span class="required">*</span> are required.</p>
+        </div>
+      </div>
+
+      <form id="drivingForm">
+        <fieldset>
+          <legend>Journey details</legend>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="idExperience">Experience ID <span class="required">*</span></label>
+              <input id="idExperience" name="idExperience" type="number" min="1" step="1" readonly required>
+              <small>Assigned automatically (previous ID + 1).</small>
+            </div>
+            <div class="form-field">
+              <label for="date">Date <span class="required">*</span></label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="form-field">
+              <label for="startingTime">Departure time <span class="required">*</span></label>
+              <input id="startingTime" name="startingTime" type="time" required>
+            </div>
+            <div class="form-field">
+              <label for="endingTime">Arrival time <span class="required">*</span></label>
+              <input id="endingTime" name="endingTime" type="time" required>
+            </div>
+            <div class="form-field">
+              <label for="km">Distance (km) <span class="required">*</span></label>
+              <input id="km" name="km" type="number" min="0.1" step="0.1" placeholder="e.g. 22.4" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Driving conditions</legend>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="idWeather">Weather <span class="required">*</span></label>
+              <select id="idWeather" name="idWeather" required><option value="">Choose weather</option></select>
+            </div>
+            <div class="form-field">
+              <label for="idRoadType">Road type <span class="required">*</span></label>
+              <select id="idRoadType" name="idRoadType" required><option value="">Choose road type</option></select>
+            </div>
+            <div class="form-field">
+              <label for="idTraffic">Traffic <span class="required">*</span></label>
+              <select id="idTraffic" name="idTraffic" required><option value="">Choose traffic</option></select>
+            </div>
+            <div class="form-field">
+              <label for="idManeuver">Maneuver <span class="required">*</span></label>
+              <select id="idManeuver" name="idManeuver" required><option value="">Choose maneuver</option></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- The teacher specifically requests type="button" and a click handler, not PHP submission. -->
+        <div class="actions">
+          <button id="saveButton" type="button" onclick="saveDrivingExperience()">Save experience</button>
+          <a class="secondary-link" href="summary.html">See saved experiences</a>
+        </div>
+        <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="mini-stats" aria-label="Progress so far">
+      <div class="mini-stat"><span>Experiences recorded</span><strong id="formCount">0</strong></div>
+      <div class="mini-stat"><span>Total distance</span><strong id="formTotalKm">0.0 km</strong></div>
+    </section>
+    <p class="privacy-note">Records are saved with <code>localStorage</code> in this browser, not on a server.</p>
+  </main>
+
+  <footer>Created by Kanan Mikayilzada · UFAZ Front-End Programming · 2026</footer>
+</body>
+</html>
