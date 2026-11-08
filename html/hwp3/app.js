@@ -25,7 +25,7 @@ function calculateTotalKm(list) {
 }
 
 function formatKm(km) {
-  return (Math.round(Number(km) * 10) / 10).toFixed(1) + " km";
+  return (Math.round((Number(km) + 1e-9) * 10) / 10).toFixed(1) + " km";
 }
 
 function setMessage(elementId, text, error) {
