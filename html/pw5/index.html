@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PW N5 - HTML5 and CSS Quiz</title>
+  <style>
+    /* General page layout */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 14px;
+      background-color: #f3f6fa;
+      color: #243447;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px;
+      background-color: #ffffff;
+      border: 1px solid #d8e0ea;
+      border-radius: 14px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #173c68;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .intro {
+      margin-top: 0;
+      margin-bottom: 22px;
+      color: #4e5d6d;
+    }
+
+    fieldset {
+      margin: 0 0 22px;
+      padding: 18px;
+      border: 1px solid #bacbdd;
+      border-radius: 10px;
+    }
+
+    legend {
+      padding: 0 8px;
+      color: #173c68;
+      font-weight: bold;
+    }
+
+    .field {
+      margin: 0 0 14px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    .field > label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    input[type="date"],
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #a4b5c8;
+      border-radius: 6px;
+      background-color: #ffffff;
+      color: #243447;
+      font: inherit;
+    }
+
+    input[type="range"] {
+      display: block;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid #3473bf;
+      outline-offset: 2px;
+    }
+
+    /* Show errors for nonempty email input, not for its initial placeholder. */
+    input[type="email"]:invalid:not(:placeholder-shown) {
+      border: 2px solid #c83443;
+    }
+
+    input[type="email"]:valid:not(:placeholder-shown) {
+      border: 2px solid #26814e;
+    }
+
+    .required-mark {
+      color: #b52c39;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 5px;
+      color: #596777;
+      font-size: 0.9rem;
+    }
+
+    .question {
+      margin: 14px 0 9px;
+      font-weight: 600;
+    }
+
+    .choice {
+      display: block;
+      margin: 7px 0;
+      cursor: pointer;
+    }
+
+    .choice input {
+      margin-right: 8px;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 7px;
+      background-color: #175b9f;
+      color: #ffffff;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background-color: #104577;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 10px;
+      }
+
+      main {
+        padding: 18px 14px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      fieldset {
+        padding: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>HTML5 &amp; CSS Quiz</h1>
+      <p class="intro">Front-End Programming - PW N5. Please enter your details and answer the questions about HTML and CSS. Fields marked * are required.</p>
+    </header>
+
+    <form action="sendData.php" method="post" autocomplete="on">
+      <input type="hidden" name="exercise" value="PW5">
+
+      <fieldset>
+        <legend>Student identification</legend>
+
+        <p class="field">
+          <label for="lastName">Last name <span class="required-mark">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" autocomplete="family-name" maxlength="60" required>
+        </p>
+
+        <p class="field">
+          <label for="firstName">First name <span class="required-mark">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" autocomplete="given-name" maxlength="60" required>
+        </p>
+
+        <p class="field">
+          <label for="email">Email <span class="required-mark">*</span></label>
+          <input type="email" id="email" name="email" placeholder="student@example.com" pattern=".+@.+\..+" title="Enter an email address such as student@example.com" autocomplete="email" required>
+          <small class="hint">An email address must contain @ and a domain dot (example: student@example.com). Invalid entries are highlighted in red.</small>
+        </p>
+
+        <p class="field">
+          <label for="website">Website (optional)</label>
+          <input type="url" id="website" name="website" placeholder="https://example.com" autocomplete="url">
+        </p>
+
+        <p class="field">
+          <label for="phone">Telephone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="994501234567" pattern="[0-9]{9,15}" autocomplete="tel">
+          <small class="hint">For this exercise, enter 9-15 digits without spaces.</small>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Quiz information</legend>
+
+        <p class="field">
+          <label for="quizDate">Quiz date <span class="required-mark">*</span></label>
+          <input type="date" id="quizDate" name="quizDate" required>
+        </p>
+
+        <p class="field">
+          <label for="demoNumber">Demo 4-digit number (optional)</label>
+          <input type="number" id="demoNumber" name="demoNumber" min="1000" max="9999" step="1" placeholder="1234">
+        </p>
+
+        <p class="field">
+          <label for="demoPassword">Demo 4-digit password (optional)</label>
+          <input type="password" id="demoPassword" name="demoPassword" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" placeholder="4 digits" autocomplete="new-password">
+          <small class="hint">Use a made-up demonstration code, never a real PIN or password.</small>
+        </p>
+
+        <p class="field">
+          <label for="confidence">Your HTML/CSS confidence (0-100)</label>
+          <input type="range" id="confidence" name="confidence" min="0" max="100" value="50">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Questions about HTML and CSS</legend>
+
+        <p class="question">1. Which CSS layout system is two-dimensional? <span class="required-mark">*</span></p>
+        <label class="choice" for="grid">
+          <input type="radio" id="grid" name="layout" value="grid" required>CSS Grid
+        </label>
+        <label class="choice" for="flexbox">
+          <input type="radio" id="flexbox" name="layout" value="flexbox">Flexbox
+        </label>
+        <label class="choice" for="inline">
+          <input type="radio" id="inline" name="layout" value="inline">Inline layout
+        </label>
+
+        <p class="question">2. Which are semantic HTML5 elements? (Select all that apply; optional)</p>
+        <label class="choice" for="semanticHeader">
+          <input type="checkbox" id="semanticHeader" name="semanticElements[]" value="header">&lt;header&gt;
+        </label>
+        <label class="choice" for="semanticMain">
+          <input type="checkbox" id="semanticMain" name="semanticElements[]" value="main">&lt;main&gt;
+        </label>
+        <label class="choice" for="semanticSection">
+          <input type="checkbox" id="semanticSection" name="semanticElements[]" value="section">&lt;section&gt;
+        </label>
+        <label class="choice" for="semanticDiv">
+          <input type="checkbox" id="semanticDiv" name="semanticElements[]" value="div">&lt;div&gt;
+        </label>
+
+        <p class="field">
+          <label for="selector">3. Select the CSS selector that targets an ID <span class="required-mark">*</span></label>
+          <select id="selector" name="selector" required>
+            <option value="">-- Choose one --</option>
+            <optgroup label="Basic selectors">
+              <option value="class">.className</option>
+              <option value="id">#elementId</option>
+              <option value="element">element</option>
+            </optgroup>
+            <optgroup label="Combinators">
+              <option value="child">parent &gt; child</option>
+              <option value="descendant">parent descendant</option>
+            </optgroup>
+          </select>
+        </p>
+
+        <p class="field">
+          <label for="topics">4. Topics you would like to review (optional; multiple choices)</label>
+          <select id="topics" name="topics[]" size="5" multiple>
+            <optgroup label="HTML">
+              <option value="forms">Forms</option>
+              <option value="semantic-html">Semantic HTML</option>
+            </optgroup>
+            <optgroup label="CSS">
+              <option value="selectors">Selectors</option>
+              <option value="grid">Grid</option>
+              <option value="flexbox">Flexbox</option>
+            </optgroup>
+          </select>
+          <small class="hint">Hold Ctrl (or Cmd on macOS) to select several topics.</small>
+        </p>
+
+        <p class="field">
+          <label for="codeExample">5. Write a short HTML or CSS example <span class="required-mark">*</span></label>
+          <textarea id="codeExample" name="codeExample" rows="6" cols="40" placeholder="Example: h1 { color: blue; }" required></textarea>
+        </p>
+      </fieldset>
+
+      <button type="submit">Submit quiz</button>
+    </form>
+  </main>
+</body>
+</html>

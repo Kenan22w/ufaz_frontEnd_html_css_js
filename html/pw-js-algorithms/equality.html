@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1 — Equality | JavaScript Algorithmics</title>
+  <style>
+:root { color-scheme: light; --navy: #173c68; --blue: #1965ae; --bg: #eef3f9; --border: #cdd9e7; --muted: #52657b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); font: 16px/1.55 system-ui, -apple-system, sans-serif; color: #182b40; }
+header { background: var(--navy); color: white; text-align: center; padding: 26px 16px; }
+header h1 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+header p { margin: 6px 0 0; }
+main { width: min(850px, calc(100% - 28px)); margin: 26px auto; }
+.panel { background: white; border: 1px solid var(--border); border-radius: 12px; padding: clamp(18px, 4vw, 32px); box-shadow: 0 6px 24px #132f5110; }
+h2 { color: #123d6d; margin-top: 0; }
+nav { margin-bottom: 18px; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #df9529; outline-offset: 3px; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); padding: 0; list-style: none; }
+.cards li { border: 1px solid var(--border); border-radius: 9px; padding: 16px; }
+.cards a { display: inline-block; font-weight: 700; margin-bottom: 5px; }
+label { display: block; font-weight: 600; margin: 14px 0 6px; }
+input { width: min(100%, 360px); border: 1px solid #91a8c0; border-radius: 6px; padding: 10px 12px; font: inherit; }
+button { margin-top: 12px; padding: 10px 20px; border: 0; border-radius: 6px; background: #1663aa; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #0d4b85; }
+output, pre { display: block; margin-top: 16px; padding: 15px; border: 1px solid var(--border); border-radius: 8px; background: #f6f9fe; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note { color: var(--muted); }
+code { background: #eef3f9; padding: 1px 4px; border-radius: 3px; }
+footer { padding: 18px; text-align: center; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Exercise 1 — Equality</h1>
+    <p>Three nested loops, conditionals, and Math.pow()</p>
+  </header>
+  <main>
+    <nav><a href="index.html">&larr; Back to homepage</a></nav>
+<section class="panel">
+  <h2>Exercise 1 — Equality</h2>
+  <p>Find all combinations of digits <strong>A, B, C from 1 to 9</strong> such that:</p>
+  <p><code>100 × A + 10 × B + C = A³ + B³ + C³</code></p>
+  <p>All <strong>9 × 9 × 9 = 729</strong> combinations are tested with three nested <code>for</code> loops.</p>
+  <p><strong>Results:</strong></p>
+  <output id="equalityResults" aria-live="polite">Running JavaScript…</output>
+  <p class="note">The matching numbers and the full solutions array are also displayed in the browser console (F12).</p>
+</section>
+  </main>
+  <footer>Front-End Programming &middot; Kanan Mikayilzada &middot; 2026</footer>
+  
+<script>
+"use strict";
+// A, B and C are strictly between 1 and 9, as in the teacher's task.
+// Three nested loops test every possible combination.
+const solutions = [];
+
+console.log("EXERCISE 1 — EQUALITY");
+for (let A = 1; A <= 9; A++) {
+  for (let B = 1; B <= 9; B++) {
+    for (let C = 1; C <= 9; C++) {
+      const ABC = 100 * A + 10 * B + C;
+      const sumOfCubes = Math.pow(A, 3) + Math.pow(B, 3) + Math.pow(C, 3);
+
+      if (ABC === sumOfCubes) {
+        solutions.push(ABC);
+        console.log(`${ABC} = ${A}³ + ${B}³ + ${C}³`);
+      }
+    }
+  }
+}
+
+console.log("All correct solutions:", solutions);
+document.getElementById("equalityResults").textContent =
+  `Matching numbers: ${solutions.join(", ")}\nTotal: ${solutions.length}`;
+
+</script>
+</body>
+</html>

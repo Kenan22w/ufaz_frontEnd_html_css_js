@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 2 — Give Change | JavaScript Algorithmics</title>
+  <style>
+:root { color-scheme: light; --navy: #173c68; --blue: #1965ae; --bg: #eef3f9; --border: #cdd9e7; --muted: #52657b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); font: 16px/1.55 system-ui, -apple-system, sans-serif; color: #182b40; }
+header { background: var(--navy); color: white; text-align: center; padding: 26px 16px; }
+header h1 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+header p { margin: 6px 0 0; }
+main { width: min(850px, calc(100% - 28px)); margin: 26px auto; }
+.panel { background: white; border: 1px solid var(--border); border-radius: 12px; padding: clamp(18px, 4vw, 32px); box-shadow: 0 6px 24px #132f5110; }
+h2 { color: #123d6d; margin-top: 0; }
+nav { margin-bottom: 18px; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #df9529; outline-offset: 3px; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); padding: 0; list-style: none; }
+.cards li { border: 1px solid var(--border); border-radius: 9px; padding: 16px; }
+.cards a { display: inline-block; font-weight: 700; margin-bottom: 5px; }
+label { display: block; font-weight: 600; margin: 14px 0 6px; }
+input { width: min(100%, 360px); border: 1px solid #91a8c0; border-radius: 6px; padding: 10px 12px; font: inherit; }
+button { margin-top: 12px; padding: 10px 20px; border: 0; border-radius: 6px; background: #1663aa; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #0d4b85; }
+output, pre { display: block; margin-top: 16px; padding: 15px; border: 1px solid var(--border); border-radius: 8px; background: #f6f9fe; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note { color: var(--muted); }
+code { background: #eef3f9; padding: 1px 4px; border-radius: 3px; }
+footer { padding: 18px; text-align: center; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Exercise 2 — Give Change</h1>
+    <p>Arrays, forEach(), integer division, and modulo</p>
+  </header>
+  <main>
+    <nav><a href="index.html">&larr; Back to homepage</a></nav>
+<section class="panel">
+  <h2>Exercise 2 — Give change back</h2>
+  <p>Find the minimum number of banknotes needed for a whole number of manat using banknotes of <strong>200, 100, 50, 20, 10, 5 and 1 AZN</strong>.</p>
+  <form id="changeForm">
+    <label for="amount">Amount in AZN (integer)</label>
+    <input id="amount" type="number" min="0" max="100000000" step="1" value="369" required>
+    <br><button type="submit">Calculate banknotes</button>
+  </form>
+  <output id="changeResults" aria-live="polite">Running JavaScript…</output>
+  <p class="note">The result uses an Array named <code>banknotesReturned</code>, indexed by banknote value. Check the Console (F12).</p>
+</section>
+  </main>
+  <footer>Front-End Programming &middot; Kanan Mikayilzada &middot; 2026</footer>
+  
+<script>
+"use strict";
+// Exercise 2: Arrays, forEach(), Math.floor(), and modulo (%).
+// Banknotes stated in the Moodle exercise (no 2-AZN banknote).
+const banknotes = [200, 100, 50, 20, 10, 5, 1];
+
+function giveChange(amount) {
+  let remainder = amount;
+  let totalNotes = 0;
+  // The numeric index is the denomination, e.g. banknotesReturned[200].
+  const banknotesReturned = [];
+
+  banknotes.forEach(function(note, index) {
+    const quantity = Math.floor(remainder / note);
+    banknotesReturned[note] = quantity;
+    remainder = remainder % note;
+    totalNotes += quantity;
+    console.log(`Banknote index ${index}: ${note} AZN -> ${quantity}`);
+  });
+
+  return { banknotesReturned: banknotesReturned, totalNotes: totalNotes };
+}
+
+function displayChange(amount) {
+  if (!Number.isSafeInteger(amount) || amount < 0) {
+    document.getElementById("changeResults").textContent =
+      "Please enter a non-negative whole number.";
+    return;
+  }
+
+  console.log("EXERCISE 2 — GIVE CHANGE BACK");
+  console.log("Amount:", amount, "AZN");
+  const result = giveChange(amount);
+  console.log("banknotesReturned (index = banknote value):", result.banknotesReturned);
+  console.log("Total number of banknotes:", result.totalNotes);
+
+  const lines = [`Amount: ${amount} AZN`];
+  banknotes.forEach(function(note) {
+    lines.push(`${note} AZN: ${result.banknotesReturned[note]} banknote(s)`);
+  });
+  lines.push(`Total: ${result.totalNotes} banknote(s)`);
+  document.getElementById("changeResults").textContent = lines.join("\n");
+}
+
+document.getElementById("changeForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // No server or PHP required for this exercise.
+  const amount = Number(document.getElementById("amount").value);
+  displayChange(amount);
+});
+
+// Run the teacher's example automatically when the page loads.
+displayChange(369);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 3 — Luhn Algorithm | JavaScript Algorithmics</title>
+  <style>
+:root { color-scheme: light; --navy: #173c68; --blue: #1965ae; --bg: #eef3f9; --border: #cdd9e7; --muted: #52657b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); font: 16px/1.55 system-ui, -apple-system, sans-serif; color: #182b40; }
+header { background: var(--navy); color: white; text-align: center; padding: 26px 16px; }
+header h1 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+header p { margin: 6px 0 0; }
+main { width: min(850px, calc(100% - 28px)); margin: 26px auto; }
+.panel { background: white; border: 1px solid var(--border); border-radius: 12px; padding: clamp(18px, 4vw, 32px); box-shadow: 0 6px 24px #132f5110; }
+h2 { color: #123d6d; margin-top: 0; }
+nav { margin-bottom: 18px; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #df9529; outline-offset: 3px; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); padding: 0; list-style: none; }
+.cards li { border: 1px solid var(--border); border-radius: 9px; padding: 16px; }
+.cards a { display: inline-block; font-weight: 700; margin-bottom: 5px; }
+label { display: block; font-weight: 600; margin: 14px 0 6px; }
+input { width: min(100%, 360px); border: 1px solid #91a8c0; border-radius: 6px; padding: 10px 12px; font: inherit; }
+button { margin-top: 12px; padding: 10px 20px; border: 0; border-radius: 6px; background: #1663aa; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #0d4b85; }
+output, pre { display: block; margin-top: 16px; padding: 15px; border: 1px solid var(--border); border-radius: 8px; background: #f6f9fe; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note { color: var(--muted); }
+code { background: #eef3f9; padding: 1px 4px; border-radius: 3px; }
+footer { padding: 18px; text-align: center; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Exercise 3 — Luhn Algorithm</h1>
+    <p>Strings, arrays, reverse(), forEach(), and check digits</p>
+  </header>
+  <main>
+    <nav><a href="index.html">&larr; Back to homepage</a></nav>
+<section class="panel">
+  <h2>Exercise 3 — Luhn algorithm</h2>
+  <p>Calculate the check digit from the number without its final digit, then compare it with the final digit of the complete number.</p>
+  <form id="luhnForm">
+    <label for="cardNumber">Fictional test number</label>
+    <input id="cardNumber" type="text" inputmode="numeric" value="17893729974" pattern="[0-9 ]+" autocomplete="off" required>
+    <br><button type="submit">Validate number</button>
+  </form>
+  <output id="luhnResults" aria-live="polite">Running JavaScript…</output>
+  <p class="note">Only use fictional test numbers, not real payment-card details. The page does not send or store anything. Open F12 &rarr; Console to inspect the calculation.</p>
+</section>
+  </main>
+  <footer>Front-End Programming &middot; Kanan Mikayilzada &middot; 2026</footer>
+  
+<script>
+"use strict";
+// Exercise 3: String -> Array -> reverse() -> forEach() -> check digit.
+// The final digit is extracted as the provided check digit.
+function validateLuhn(fullNumber) {
+  const card = String(fullNumber).replace(/\s/g, "");
+  if (!/^\d{2,}$/.test(card)) {
+    return null;
+  }
+
+  const providedDigit = Number(card.substring(card.length - 1));
+  const payload = card.substring(0, card.length - 1);
+  const digits = payload.split("").reverse();
+  let sum = 0;
+
+  // Starting at the rightmost digit of the payload, double every second digit.
+  digits.forEach(function(item, index) {
+    let digit = Number(item);
+    if (index % 2 === 0) {
+      digit = digit * 2;
+      if (digit > 9) {
+        digit = digit - 9; // Sum the two decimal digits of a value from 10 to 18.
+      }
+    }
+    sum += digit;
+  });
+
+  const calculatedDigit = (10 - (sum % 10)) % 10;
+  return {
+    number: card,
+    payload: payload,
+    sum: sum,
+    calculatedCheckDigit: calculatedDigit,
+    providedCheckDigit: providedDigit,
+    valid: calculatedDigit === providedDigit
+  };
+}
+
+function showLuhn(fullNumber) {
+  const result = validateLuhn(fullNumber);
+  if (result === null) {
+    document.getElementById("luhnResults").textContent =
+      "Invalid input: enter at least two digits (spaces are permitted).";
+    console.log("Invalid input:", fullNumber);
+    return;
+  }
+
+  console.log("EXERCISE 3 — LUHN ALGORITHM");
+  console.log("Number:", result.number);
+  console.log("Payload (without check digit):", result.payload);
+  console.log("Luhn sum:", result.sum);
+  console.log("Calculated check digit:", result.calculatedCheckDigit);
+  console.log("Provided check digit:", result.providedCheckDigit);
+  console.log(result.valid ? "Validated" : "Not validated");
+
+  document.getElementById("luhnResults").textContent =
+    `Number: ${result.number}\n` +
+    `Calculated check digit: ${result.calculatedCheckDigit}\n` +
+    `Provided check digit: ${result.providedCheckDigit}\n` +
+    `Result: ${result.valid ? "Validated" : "Not validated"}`;
+}
+
+document.getElementById("luhnForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  showLuhn(document.getElementById("cardNumber").value);
+});
+
+// One valid and one invalid fictional example in the browser console.
+showLuhn("17893729974");
+console.log("Invalid-example check:", validateLuhn("17893729975"));
+
+</script>
+</body>
+</html>
